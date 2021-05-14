@@ -59,3 +59,8 @@ sudo port install gmp
 sudo port install boost -no_static +static
 sudo port install eigen3
 ```
+
+Package with:
+```
+tar cvfz optlocal.tgz --exclude=opt/local/Library --exclude=opt/local/var --exclude='./opt/local/share/doc' /opt/local
+```
