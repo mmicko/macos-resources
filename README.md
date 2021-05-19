@@ -32,7 +32,7 @@ on mac machine and transfer file for cross compile usage, same as with Qt5
 
 Next packages should be installed
 ```
-  boost @1.71.0_3+no_single+python38 (active)
+  boost @1.71.0_3+no_single (active)
   eigen3 @3.3.9_0 (active)
   gmp @6.2.1_0 (active)
   gtk-osx-application-gtk2 @2.0.8_0 (active)
@@ -56,11 +56,12 @@ sudo port install realpath
 sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
-sudo port install boost -no_static +static
+sudo port install boost -no_static +static -python38
 sudo port install eigen3
 ```
 
 Package with:
 ```
-tar cvfz optlocal.tgz --exclude=opt/local/Library --exclude=opt/local/var --exclude='./opt/local/share/doc' /opt/local
+cd /opt/local/var/macports/software
+tar cvf ~/macports-darwin-x64.tar *
 ```
