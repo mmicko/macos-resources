@@ -35,6 +35,7 @@ Next packages should be installed
   boost @1.71.0_3+no_single (active)
   eigen3 @3.3.9_0 (active)
   gmp @6.2.1_0 (active)
+  graphviz @2.40.1_4+pangocairo (active)
   gtk-osx-application-gtk2 @2.0.8_0 (active)
   gtk2 @2.24.32_0+quartz (active)
   hidapi @0.9.0_0 (active)
@@ -58,6 +59,7 @@ sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install boost -no_static +static -python38 -python39
 sudo port install eigen3
+sudo port install graphviz
 ```
 
 Package with:
