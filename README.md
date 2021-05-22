@@ -90,6 +90,7 @@ sudo port install gmp
 sudo port install eigen3
 
 sudo port uninstall leaves  (couple of times)
+sudo port install curl
 ```
 
 Package with:
