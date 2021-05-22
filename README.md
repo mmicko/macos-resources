@@ -60,12 +60,12 @@ on mac machine and transfer file for cross compile usage, same as with Qt5
 
 Next packages should be installed checked with `port installed requested`
 ```
-  boost @1.71.0_3+no_single (active)
+  boost @1.71.0_4+no_single (active)
+  coreutils @8.32_0 (active)
   eigen3 @3.3.9_0 (active)
   gmp @6.2.1_0 (active)
-  graphviz @2.40.1_4+pangocairo (active)
-  gtk-osx-application-gtk2 @2.0.8_0 (active)
   gtk2 @2.24.32_0+quartz (active)
+  gtk3 @3.24.23_0+quartz (active)
   hidapi @0.9.0_0 (active)
   libftdi1 @1.5_0 (active)
   libusb @1.0.24_0 (active)
@@ -80,20 +80,16 @@ in `/opt/local/etc/macports/variants.conf` add `-x11 +no_x11 +quartz` to be defa
 Provided files are created with next order of commands:
 ```
 sudo port install coreutils
-sudo port install boost -no_static +static -python38
-or for later macOS 
 sudo port install boost -no_static +static -python39
-
 sudo port install gtk2
-sudo port install gtk-osx-application-gtk2
 sudo port install gtk3
-sudo port install gtk-osx-application-gtk3
-
 sudo port install realpath
 sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install eigen3
+
+sudo port uninstall leaves  (couple of times)
 ```
 
 Package with:
