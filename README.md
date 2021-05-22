@@ -79,15 +79,21 @@ in `/opt/local/etc/macports/variants.conf` add `-x11 +no_x11 +quartz` to be defa
 
 Provided files are created with next order of commands:
 ```
+sudo port install coreutils
 sudo port install boost -no_static +static -python38
+or for later macOS 
+sudo port install boost -no_static +static -python39
+
+sudo port install gtk2
+sudo port install gtk-osx-application-gtk2
 sudo port install gtk3
 sudo port install gtk-osx-application-gtk3
+
 sudo port install realpath
 sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install eigen3
-sudo port install graphviz
 ```
 
 Package with:
