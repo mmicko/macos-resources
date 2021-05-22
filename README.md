@@ -58,7 +58,7 @@ cp ../../qcocoahelpers.mm src/plugins/platforms/cocoa/qcocoahelpers.mm
 There are some packages that needs to be compiled since there is no binary distribution available on macports, easy way is to generate all
 on mac machine and transfer file for cross compile usage, same as with Qt5
 
-Next packages should be installed
+Next packages should be installed checked with `port installed requested`
 ```
   boost @1.71.0_3+no_single (active)
   eigen3 @3.3.9_0 (active)
