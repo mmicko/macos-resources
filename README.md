@@ -5,7 +5,7 @@ macOS resources needed for cross compile
 
 Since cross compile environment is using Ubuntu 22.04 which contain Qt5 tools for 5.15.3 we compile exactly same version for macOS
 ```
-tar xvfz qt-everywhere-src-5.15.3.tar.xz
+tar xvfz qt-everywhere-opensource-src-5.15.3.tar.xz
 cd qt-everywhere-src-5.15.3
 
 ./configure \
@@ -33,7 +33,7 @@ by adding
 #include <CoreGraphics/CGColorSpace.h>
 ```
 
-Override qtbase/mkspecs/features/toolchain.prf with one from repo
+Override qtbase/mkspecs/features/toolchain.prf with one from repo (only for SDK 14.0 and up, we use 13.3)
 
 
 ```
@@ -43,7 +43,6 @@ Override qtbase/mkspecs/features/toolchain.prf with one from repo
     -nomake examples \
     -nomake tests \
     QMAKE_APPLE_DEVICE_ARCHS=arm64 \
-    QMAKE_DEFAULT_LIBDIRS=$(xcrun -show-sdk-path)/usr/lib \
     -opensource -confirm-license \
     -system-zlib \
     -qt-libpng \
@@ -84,15 +83,12 @@ Provided files are created with next order of commands:
 ```
 sudo port install coreutils
 sudo port install boost -no_static +static -python311
-sudo port install gtk2
-sudo port install gtk3
+sudo port install gtk2 gtk-osx-application-gtk2
 sudo port install realpath
 sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install eigen3
-
-sudo port uninstall leaves  (couple of times)
 sudo port install curl
 ```
 
