@@ -89,7 +89,7 @@ sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install eigen3
-sudo port install curl
+sudo port install curl -http2
 ```
 
 Package with:
