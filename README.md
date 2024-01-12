@@ -71,9 +71,7 @@ Next packages should be installed checked with `port installed requested`
   coreutils @9.4_0 (active)
   curl @8.5.0_0+ssl (active)
   eigen3 @3.4.0_1 (active)
-  gtk-osx-application-gtk2 @3.0.1_2 (active)
   gtk-osx-application-gtk3 @3.0.1_2 (active)
-  gtk2 @2.24.33_3+quartz (active)
   gtk3 @3.24.38_0+quartz (active)
   hidapi @0.12.0_0 (active)
   libftdi1 @1.5_2 (active)
@@ -90,14 +88,12 @@ Provided files are created with next order of commands:
 ```
 sudo port install coreutils
 sudo port install boost -no_static +static -python311
-sudo port install gtk2 gtk-osx-application-gtk2
 sudo port install realpath
 sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install eigen3
 sudo port install curl -http2
-
 sudo port install py312-setuptools
 sudo port install gtk3 gtk-osx-application-gtk3
 ```
