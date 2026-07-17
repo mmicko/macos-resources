@@ -4,14 +4,20 @@ macOS resources needed for cross compile
 ## Qt6
 
 Since cross compile environment is using Ubuntu 26.04 which contain Qt6 tools for 6.10.2 we compile exactly same version for macOS
+
 ```
+brew install cmake ninja
 tar xvfz qt-everywhere-src-6.10.2.tar.xz 
 cd qt-everywhere-src-6.10.2
 ```
 
-For x64:
+For x64 (cross compiled on arm64):
 
 ```
+softwareupdate --install-rosetta --agree-to-license
+
+export CMAKE_OSX_ARCHITECTURES=x86_64
+
 ./configure \
     -release \
     -prefix ~/Qt6.10.2 \
