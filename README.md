@@ -1,17 +1,12 @@
 # macOS-resources
 macOS resources needed for cross compile
 
-## Qt5
+## Qt6
 
-Since cross compile environment is using Ubuntu 22.04 which contain Qt5 tools for 5.15.3 we compile exactly same version for macOS
+Since cross compile environment is using Ubuntu 26.04 which contain Qt6 tools for 6.10.2 we compile exactly same version for macOS
 ```
-tar xvfz qt-everywhere-opensource-src-5.15.3.tar.xz
-cd qt-everywhere-src-5.15.3
-```
-
-For using with MacOSX12.3.sdk patch qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h by adding
-```
-#include <CoreGraphics/CGColorSpace.h>
+tar xvfz qt-everywhere-src-6.10.2.tar.xz 
+cd qt-everywhere-src-6.10.2
 ```
 
 For x64:
@@ -19,7 +14,7 @@ For x64:
 ```
 ./configure \
     -release \
-    -prefix ~/Qt5.15.3 \
+    -prefix ~/Qt6.10.2 \
     -nomake examples \
     -nomake tests \
     -opensource -confirm-license \
@@ -30,22 +25,28 @@ For x64:
     -qt-pcre \
     -dbus-runtime \
     -skip qt3d \
-    -skip qtwebengine
+    -skip qtwebengine \
+    -skip qtwebview
 
-make
-make install
-tar cvfz Qt5.15.3-x86_64.tar.gz Qt5.15.3/
+cmake --build . --parallel
+cmake --install .
+tar cvfz Qt6.10.2-x86_64.tar.gz Qt6.10.2/
 ```
 
 For arm64:
+add on top of file `qtbase/src/corelib/thread/qyieldcpu.h`
+```
+#if defined(Q_PROCESSOR_ARM_64)
+#include <arm_acle.h>
+#endif
+```
 
 ```
 ./configure \
     -release \
-    -prefix ~/Qt5.15.3 \
+    -prefix ~/Qt6.10.2 \
     -nomake examples \
     -nomake tests \
-    QMAKE_APPLE_DEVICE_ARCHS=arm64 \
     -opensource -confirm-license \
     -system-zlib \
     -qt-libpng \
@@ -54,11 +55,13 @@ For arm64:
     -qt-pcre \
     -dbus-runtime \
     -skip qt3d \
-    -skip qtwebengine
+    -skip qtwebengine \
+    -skip qtwebview
 
-make
-make install
-tar cvfz Qt5.15.3-arm64.tar.gz Qt5.15.3/
+cmake --build . --parallel
+cmake --install .
+
+tar cvfz Qt6.10.2-arm64.tar.gz Qt6.10.2/
 ```
 
 ## macports
