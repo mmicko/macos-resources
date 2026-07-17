@@ -72,21 +72,21 @@ tar cvfz Qt6.10.2-arm64.tar.gz Qt6.10.2/
 
 ## macports
 There are some packages that needs to be compiled since there is no binary distribution available on macports, easy way is to generate all
-on mac machine and transfer file for cross compile usage, same as with Qt5
+on mac machine and transfer file for cross compile usage, same as with Qt6
 
 Next packages should be installed checked with `port installed requested`
 ```
-  boost @1.76_0 (active)
-  coreutils @9.4_0 (active)
-  curl @8.5.0_0+ssl (active)
-  eigen3 @3.4.0_1 (active)
-  gtk-osx-application-gtk3 @3.0.1_2 (active)
-  gtk3 @3.24.38_0+quartz (active)
-  hidapi @0.12.0_0 (active)
+ boost @1.76_1 (active)
+  coreutils @9.11_0 (active)
+  curl @8.21.0_0+brotli+idn+psl+ssl+zstd (active)
+  eigen3 @3.4.1_0 (active)
+  gmp @6.3.0_0 (active)
+  gtk4 @4.22.4_0+quartz (active)
+  hidapi @0.15.0_0 (active)
   libftdi1 @1.5_2 (active)
-  libusb @1.0.26_0 (active)
+  libusb @1.0.30_0 (active)
   realpath @1.0.2_0 (active)
-  tk @8.6.13_2+quartz (active)
+  tk @8.6.18_0+quartz (active)
 ```
 
 coreutils package is also need for compilaton if tools are not available already on mac.
@@ -96,15 +96,14 @@ in `/opt/local/etc/macports/variants.conf` add `-x11 +no_x11 +quartz` to be defa
 Provided files are created with next order of commands:
 ```
 sudo port install coreutils
-sudo port install boost -no_static +static -python311
+sudo port install boost -no_static +static -python313
 sudo port install realpath
 sudo port install tk
 sudo port install libusb libftdi1 hidapi
 sudo port install gmp
 sudo port install eigen3
 sudo port install curl -http2
-sudo port install py312-setuptools
-sudo port install gtk3 gtk-osx-application-gtk3
+sudo port install gtk4
 ```
 
 Package with (for x64):
